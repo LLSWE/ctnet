@@ -1,0 +1,25 @@
+[package]
+name = "daemon"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+aya = "0.14.0"
+aya-log = "0.3.0"
+common = { path = "../common" }
+
+tokio = { version = "1.54.1", features = ["full"] }
+
+axum = { version = "0.8.9" }
+
+serde = { version = "1.0.229", features = ["derive"] }
+serde_json = { version = "1.0.154" }
+
+toml = { version = "0.9.8" }
+
+prometheus = { version = "0.14.0" }
+tracing = { version = "0.1.44" }
+tracing-subscriber = { version = "0.3.23", features = ["env-filter"] }
+
+clap = { version = "4.6.7", features = ["derive"] }
+tokio-util = { version = "0.7.20", features = ["full"] }
