@@ -1,0 +1,14 @@
+[package]
+name = "bpf"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+aya = { version = "0.14.0" }
+aya-ebpf = { version = "0.2.1" }
+aya-log-ebpf = { version = "0.2.0" }
+common = { path = "../common" }
+network-types = { version = "0.2.0" }
