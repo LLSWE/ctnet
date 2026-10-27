@@ -5,7 +5,7 @@ use aya_ebpf::{
 use common::RateLimitValue;
 
 #[map]
-pub static RING_BUG: RingBuf = RingBuf::with_byte_size(256 * 1024, 0);
+pub static RING_BUF: RingBuf = RingBuf::with_byte_size(256 * 1024, 0);
 
 #[map]
 pub static RING_LIMITER: LruHashMap<u32, RateLimitValue> = LruHashMap::with_max_entries(10_000, 0);

@@ -16,7 +16,7 @@ pub unsafe fn parse_ipv4(ctx: &XdpContext) -> Result<*const Ipv4Hdr, ()> {
     }
 
     let eth_hdr = start as *const EthHdr;
-    if (*eth_hdr).ether_type != EtherType::Ipv4 {
+    if (*eth_hdr).ether_type != EtherType::Ipv4 as u16 {
         return Err(());
     }
 
