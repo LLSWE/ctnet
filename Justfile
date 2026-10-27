@@ -1,8 +1,11 @@
+build-bpf-dbg:
+    cargo +nightly build --package bpf --target bpfel-unknown-none -Z build-std=core 
+
 build-bpf:
-    cargo build --package ctnet-ebpf --target bpfel-unknown-none -Z build-std=core --release
+    cargo +nightly build --package bpf --target bpfel-unknown-none -Z build-std=core --release
 
-build-daemon:
-    cargo build --package ctnet-daemon --release
+build-daemon: build-bpf
+    cargo build --package daemon --release
 
-run iface="lo": build-bpf
-    sudo -E cargo run --package ctnet-daemon -- --iface {{iface}}
+run iface="lo": build-bpf-dbg
+    sudo -E ~/.cargo/bin/cargo run --package daemon -- --iface {{iface}}
